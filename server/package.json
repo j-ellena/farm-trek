@@ -1,0 +1,22 @@
+{
+  "name": "farm-trek-server",
+  "version": "1.0.0",
+  "description": "backend to track activities on a farm",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/j-ellena/farm-trek.git"
+  },
+  "author": "Jelena Pletikosa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/j-ellena/farm-trek/issues"
+  },
+  "homepage": "https://github.com/j-ellena/farm-trek#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
