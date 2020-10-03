@@ -1,12 +1,6 @@
 import { Pool } from 'pg'
-import { user, password } from '../secrets.json'
+import { db } from '../config'
 
-const pool = new Pool({
-    user,
-    password,
-    host: "localhost",
-    port: 5432,
-    database: "farm_trek"
-})
+const database = new Pool(db)
 
-export default pool
+export default database

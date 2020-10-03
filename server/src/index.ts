@@ -1,9 +1,10 @@
 import express from 'express'
-import pool from './db/db'
+import database from './db/db'
+import { server } from './config'
 
 const app = express()
-const PORT = 8000
+const { port } = server
 
 app.get('/', (req, res) => res.send('server'));
 
-app.listen(PORT, () => console.log(`server is running at https://localhost:${PORT}`))
+app.listen(port, () => console.log(`server is running at https://localhost:${port}`))
