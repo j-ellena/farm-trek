@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
+    "resolveJsonModule": true,                /* Allows importing modules with a ‘.json’ extension. This includes generating a type for the import based on the static JSON shape. */
 
     /* Basic Options */
     // "incremental": true,                   /* Enable incremental compilation */
