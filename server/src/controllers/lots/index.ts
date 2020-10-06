@@ -20,4 +20,15 @@ const getLots = async (req: Request, res: Response) => {
     }
 }
 
-export { addLot, getLots }
+const editLot = async (req: Request, res: Response) => {
+    try {
+        const { id } = req.params
+        const { name } = req.body
+        const editLot = await db.query('UPDATE lots SET name = $1 WHERE id = $2', [name, id])
+        res.json(editLot.rows[0])
+    } catch (err) {
+        console.error(err.message)
+    }
+}
+
+export { addLot, getLots, editLot }
