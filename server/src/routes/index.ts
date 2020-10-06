@@ -1,9 +1,11 @@
 import { Router } from 'express'
-import { getLots, addLot, editLot, deleteLot } from '../controllers/lots'
+import { getLots, getLot, addLot, editLot, deleteLot } from '../controllers/lots'
  
 const router: Router = Router()
 
 router.get('/lots', getLots)
+
+router.get('/lots/:id', getLot)
 
 router.post('/lots', addLot)
 
