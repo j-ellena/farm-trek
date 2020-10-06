@@ -31,4 +31,16 @@ const editLot = async (req: Request, res: Response) => {
     }
 }
 
-export { addLot, getLots, editLot }
+const deleteLot = async (req: Request, res: Response) => {
+    try {
+        const { id } = req.params
+        const deleteLot = await db.query('DELETE FROM lots WHERE id = $1', [id])
+        res.json({
+            status: 'success'
+        })
+    } catch (err) {
+        console.error(err.message)
+    }
+}
+
+export { addLot, getLots, editLot, deleteLot }
