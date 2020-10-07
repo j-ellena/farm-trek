@@ -1,8 +1,6 @@
 import { user, password } from './secrets.json'
 
-export const server = {
-    port: 8000
-}
+export const port: string | number = process.env.PORT || 8000
 
 export const db = {
     user,
