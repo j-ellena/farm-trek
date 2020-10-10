@@ -1,8 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import Home from './routes/Home'
-import Lots from './routes/Lots'
-
+import { Home, Lots } from './routes'
 import './App.css'
 
 const App = () => {
@@ -16,4 +14,4 @@ const App = () => {
   )
 }
 
-export default App;
+export default App
