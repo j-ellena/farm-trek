@@ -4,7 +4,7 @@ import { Home, Lots } from './routes'
 import { LotsProvider } from './context/LotsContext'
 import './App.css'
 
-const App = (): JSX.Element => {
+const App = () => {
   return (
     <LotsProvider>
       <Router>
