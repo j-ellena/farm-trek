@@ -1,6 +1,6 @@
 import React, { Fragment, useContext, useEffect } from 'react'
-import serverUrl from '../../apis/FarmTrekApi'
-import { LotsContext } from '../../context/LotsContext'
+import serverUrl from 'src/apis/FarmTrekApi'
+import { LotsContext } from 'src/context/LotsContext'
 
 const LotsList = () => {
 

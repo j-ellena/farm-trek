@@ -1,8 +1,8 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { Home, Lots } from './routes'
-import { LotsProvider } from './context/LotsContext'
-import './App.css'
+import { Home, Lots } from 'src/routes'
+import { LotsProvider } from 'src/context/LotsContext'
+import 'src/App.css'
 
 const App = () => {
   return (
