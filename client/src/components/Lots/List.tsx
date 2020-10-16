@@ -1,5 +1,5 @@
 import React, { Fragment, useContext, useEffect } from 'react'
-import baseUrl from '../../apis/FarmTrekApi'
+import serverUrl from '../../apis/FarmTrekApi'
 import { LotsContext } from '../../context/LotsContext'
 
 const LotsList = () => {
@@ -8,7 +8,7 @@ const LotsList = () => {
 
     const getLots = async () => {
         try {
-            const response = await fetch(`${baseUrl}/lots`)
+            const response = await fetch(`${serverUrl}/lots`)
             const jsonData = await response.json()
             setLots(jsonData)
         } catch (err) {
