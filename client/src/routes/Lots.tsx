@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react'
-import LotsInput from 'src/components/Lots/Input'
-import LotsList from 'src/components/Lots/List'
+import { LotsInput, LotsList } from 'src/components/Lots'
 
 const Lots = () => {
     return (

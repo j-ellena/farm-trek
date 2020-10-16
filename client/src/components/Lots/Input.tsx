@@ -4,14 +4,14 @@ const LotsInput = () => {
 
     const placeholder = 'Input new lot'
 
-    const onSubmit = (e: FormEvent<HTMLFormElement>):void => {
+    const onSubmit = (e: FormEvent<HTMLFormElement>): void => {
         e.preventDefault()
     }
 
     return (
         <Fragment>
             <form>
-                <input type='text' onChange={e => console.log(e.target.value)} placeholder={placeholder} required/>
+                <input type='text' onChange={e => console.log(e.target.value)} placeholder={placeholder} required />
                 <button type='submit'>Add</button>
             </form>
         </Fragment>
