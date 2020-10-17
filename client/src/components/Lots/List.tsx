@@ -1,6 +1,7 @@
 import React, { Fragment, useContext, useEffect } from 'react'
 import serverUrl from 'src/apis/FarmTrekApi'
 import { LotsContext } from 'src/context/LotsContext'
+import { LotsItem } from 'src/components/Lots'
 
 const LotsList = () => {
 
@@ -22,7 +23,7 @@ const LotsList = () => {
 
     return (
         <Fragment>
-            LotsList
+            {lots.map((lot: Lot) => <LotsItem key={lot.id} lot={lot} />)}
         </Fragment>
     )
 }
