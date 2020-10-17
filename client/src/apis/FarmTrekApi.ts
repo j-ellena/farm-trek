@@ -1,3 +1,8 @@
-const serverUrl = 'http://localhost:8000'
+import axios, { AxiosInstance, AxiosRequestConfig } from 'axios'
 
-export default serverUrl
+const config: AxiosRequestConfig = {
+    baseURL: 'http://localhost:8000'
+}
+const HTTPclient: AxiosInstance = axios.create(config)
+
+export default HTTPclient
