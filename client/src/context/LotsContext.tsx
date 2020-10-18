@@ -10,8 +10,12 @@ export const LotsProvider = (props: any) => {
         setLots([lot, ...lots])
     }
 
+    const deleteLot = (id: number): void => {
+        setLots(lots.filter((lot: Lot) => lot.id !== id))
+    }
+
     return (
-        <LotsContext.Provider value={{ lots, setLots, addLot }}>
+        <LotsContext.Provider value={{ lots, setLots, addLot, deleteLot }}>
             {props.children}
         </LotsContext.Provider>
     )
