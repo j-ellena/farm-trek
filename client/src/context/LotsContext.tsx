@@ -14,8 +14,15 @@ export const LotsProvider = (props: any) => {
         setLots(lots.filter((lot: Lot) => lot.id !== id))
     }
 
+    const updateLot = (lot: Lot): void => {
+        const index = lots.findIndex(item => item.id === lot.id)
+        const updatedLots = [...lots]
+        updatedLots[index] = lot
+        setLots(updatedLots)
+    }
+
     return (
-        <LotsContext.Provider value={{ lots, setLots, addLot, deleteLot }}>
+        <LotsContext.Provider value={{ lots, setLots, addLot, deleteLot, updateLot }}>
             {props.children}
         </LotsContext.Provider>
     )
