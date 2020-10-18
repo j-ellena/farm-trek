@@ -35,7 +35,7 @@ const editLot = async (req: Request, res: Response) => {
         const { id } = req.params
         const { name } = req.body
         const { rows } = await db.query('UPDATE lots SET name = $1 WHERE id = $2', [name, id])
-        res.status(200).json(rows[0])
+        res.status(200).json({ id: parseInt(id), name })
     } catch (err) {
         console.error(err.message)
     }
