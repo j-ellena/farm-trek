@@ -1,0 +1,17 @@
+{
+  "app": {
+    "name": "Farm Trek DE"
+  },
+  "basic": {
+    "add": "Hinzufügen",
+    "delete": "Löschen",
+    "dismiss": "Entlassen",
+    "edit": "Bearbeiten",
+    "lot": "Parzelle",
+    "lots": "Parzellen",
+    "save": "Speichern"
+  },
+  "lots": {
+    "placeholderNew": "Neue Parzelle eingeben"
+  }
+}

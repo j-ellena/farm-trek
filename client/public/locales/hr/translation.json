@@ -1,0 +1,17 @@
+{
+  "app": {
+    "name": "Farm Trek HR"
+  },
+  "basic": {
+    "add": "Dodaj",
+    "delete": "Izbriši",
+    "dismiss": "Odustani",
+    "edit": "Uredi",
+    "lot": "Zemljište",
+    "lots": "Zemljišta",
+    "save": "Spremi"
+  },
+  "lots": {
+    "placeholderNew": "Unesite novo zemljište"
+  }
+}

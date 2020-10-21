@@ -1,0 +1,17 @@
+{
+  "app": {
+    "name": "Farm Trek EN"
+  },
+  "basic": {
+    "add": "Add",
+    "delete": "Delete",
+    "dismiss": "Dismiss",
+    "edit": "Edit",
+    "lot": "Lot",
+    "lots": "Lots",
+    "save": "Save"
+  },
+  "lots": {
+    "placeholderNew": "Input new lot"
+  }
+}
