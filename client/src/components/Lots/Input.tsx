@@ -1,13 +1,15 @@
-import React, { FormEvent, Fragment, useContext, useState } from 'react'
+import React, { FC, FormEvent, Fragment, useContext, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import HTTPclient from 'src/apis/FarmTrekApi'
 import { LotsContext } from 'src/context/LotsContext'
 
-const LotsInput = () => {
+const LotsInput: FC = () => {
 
+    const { t } = useTranslation()
     const [name, setName] = useState('')
     const { addLot } = useContext(LotsContext)
 
-    const placeholder = 'Input new lot'
+    const placeholder = t('lots.placeholderNew')
 
     const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
@@ -26,7 +28,10 @@ const LotsInput = () => {
         <Fragment>
             <form onSubmit={onSubmit}>
                 <input value={name} onChange={e => setName(e.target.value)} type='text' placeholder={placeholder} required />
-                <button type='submit'>Add</button>
+                <button type='submit'>{t('basic.add')}</button>
+                {name &&
+                    <button type='button' onClick={() => setName('')}>{t('basic.dismiss')}</button>
+                }
             </form>
         </Fragment>
     )
