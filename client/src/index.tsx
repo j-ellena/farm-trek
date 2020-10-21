@@ -5,7 +5,7 @@ import * as serviceWorker from 'src/serviceWorker'
 
 render(
   <StrictMode>
-      <App />
+    <App />
   </StrictMode>,
   document.getElementById('root')
 )
