@@ -15,7 +15,7 @@ export const LotsProvider = (props: any) => {
     }
 
     const updateLot = (lot: Lot): void => {
-        const index = lots.findIndex(item => item.id === lot.id)
+        const index = lots.findIndex((item) => item.id === lot.id)
         const updatedLots = [...lots]
         updatedLots[index] = lot
         setLots(updatedLots)
