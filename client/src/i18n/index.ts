@@ -9,7 +9,7 @@ i18n
   .init({
     lng: 'hr',
     fallbackLng: 'en',
-    debug: process.env.NODE_ENV === 'development'
+    debug: process.env.NODE_ENV === 'development',
   })
 
 export default i18n

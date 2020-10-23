@@ -15,7 +15,7 @@ const LotsInput: FC = () => {
         e.preventDefault()
         try {
             const response = await HTTPclient.post('/lots', {
-                name
+                name,
             })
             addLot(response.data)
             setName('')

@@ -13,7 +13,7 @@ const LotsEdit: FC<any> = ({ lot, setEditMode }) => {
         e.preventDefault()
         try {
             const response = await HTTPclient.put(`/lots/${lot.id}`, {
-                name
+                name,
             })
             updateLot(response.data)
             setEditMode(false)
