@@ -1,4 +1,6 @@
-import React, { FC, FormEvent, Fragment, useContext, useState } from 'react'
+import React, {
+    FC, FormEvent, Fragment, useContext, useState,
+} from 'react'
 import { useTranslation } from 'react-i18next'
 import HTTPclient from 'src/apis/FarmTrekApi'
 import { LotsContext } from 'src/context/LotsContext'

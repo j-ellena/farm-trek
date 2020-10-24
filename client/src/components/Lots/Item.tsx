@@ -1,4 +1,6 @@
-import React, { FC, Fragment, useContext, useState } from 'react'
+import React, {
+    FC, Fragment, useContext, useState,
+} from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { ILot } from 'src/interface'
