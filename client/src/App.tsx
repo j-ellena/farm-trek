@@ -6,8 +6,7 @@ import { Home, Lots } from 'src/routes'
 import { LotsProvider } from 'src/context/LotsContext'
 import 'src/App.css'
 
-const App = () => {
-  return (
+const App = () => (
     <Suspense fallback='...'>
       <I18nextProvider i18n={i18n}>
         <LotsProvider>
@@ -21,6 +20,5 @@ const App = () => {
       </I18nextProvider>
     </Suspense>
   )
-}
 
 export default App
