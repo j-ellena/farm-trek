@@ -8,6 +8,7 @@ i18n
   .init({
     lng: 'hr',
     fallbackLng: 'en',
+    supportedLngs: ['hr', 'en', 'de'],
     debug: process.env.NODE_ENV === 'development',
   })
 
