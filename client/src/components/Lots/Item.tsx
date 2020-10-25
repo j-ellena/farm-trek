@@ -33,7 +33,7 @@ const Item: FC<ILot> = ({ lot }) => {
                         <button type='button'>{t('basic.edit')}</button>
                     </span>
                     <button type='button' onClick={() => handleDelete(lot.id)}>{t('basic.delete')}</button>
-                </div>
+                  </div>
             }
         </Fragment >
     )
