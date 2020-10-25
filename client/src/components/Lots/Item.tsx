@@ -26,10 +26,8 @@ const Item: FC<ILot> = ({ lot }) => {
     return (
         <Fragment>
             {editMode
-                ?
-                <LotsEdit lot={lot} setEditMode={setEditMode} />
-                :
-                <div>
+                ? <LotsEdit lot={lot} setEditMode={setEditMode} />
+                : <div>
                     <span onClick={() => setEditMode(true)}>
                         {lot.name}
                         <button type='button'>{t('basic.edit')}</button>
