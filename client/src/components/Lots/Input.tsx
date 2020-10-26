@@ -8,7 +8,7 @@ import { LotsContext } from 'src/context/LotsContext'
 const LotsInput: FC = () => {
 
     const { t } = useTranslation()
-    const [name, setName] = useState('')
+    const [name, setName] = useState<string>('')
     const { addLot } = useContext(LotsContext)
 
     const placeholder = t('lots.placeholderNew')

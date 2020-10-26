@@ -12,7 +12,7 @@ const Item: FC<ILot> = ({ lot }) => {
 
     const { t } = useTranslation()
     const { deleteLot } = useContext(LotsContext)
-    const [editMode, setEditMode] = useState(false)
+    const [editMode, setEditMode] = useState<boolean>(false)
 
     const handleDelete = async (id: number) => {
         try {

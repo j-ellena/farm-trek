@@ -8,7 +8,7 @@ import { LotsContext } from 'src/context/LotsContext'
 const LotsEdit: FC<any> = ({ lot, setEditMode }) => {
 
     const { t } = useTranslation()
-    const [name, setName] = useState(lot.name)
+    const [name, setName] = useState<string>(lot.name)
     const { updateLot } = useContext(LotsContext)
 
     const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
