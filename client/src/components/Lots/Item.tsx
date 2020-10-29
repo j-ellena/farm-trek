@@ -24,18 +24,18 @@ const Item: FC<ILot> = ({ lot }) => {
     }
 
     return (
-        <Fragment>
-            {editMode
+      <Fragment>
+        {editMode
                 ? <LotsEdit lot={lot} setEditMode={setEditMode} />
                 : <div>
-                    <span onClick={() => setEditMode(true)}>
-                        {lot.name}
-                        <button type='button'>{t('basic.edit')}</button>
-                    </span>
-                    <button type='button' onClick={() => handleDelete(lot.id)}>{t('basic.delete')}</button>
-                  </div>
+                  <span onClick={() => setEditMode(true)}>
+                    {lot.name}
+                    <button type='button'>{t('basic.edit')}</button>
+                  </span>
+                  <button type='button' onClick={() => handleDelete(lot.id)}>{t('basic.delete')}</button>
+                </div>
             }
-        </Fragment >
+      </Fragment >
     )
 }
 

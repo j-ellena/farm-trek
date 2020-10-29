@@ -22,11 +22,11 @@ export const LotsProvider = (props: any) => {
     }
 
     return (
-        <LotsContext.Provider value={{
+      <LotsContext.Provider value={{
             lots, setLots, addLot, deleteLot, updateLot,
         }}
-        >
-            {props.children}
-        </LotsContext.Provider>
+      >
+        {props.children}
+      </LotsContext.Provider>
     )
 }

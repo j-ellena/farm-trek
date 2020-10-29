@@ -19,7 +19,7 @@ const LanguageSwitcher = () => {
           {supportedLngs
             .filter((lng: string) => lng !== 'cimode')
             .map((lng: string) => <option key={lng} value={lng}>{lng.toUpperCase()}</option>)}
-           </select>
+        </select>
           }
     </div>
   )

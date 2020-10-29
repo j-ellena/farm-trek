@@ -25,13 +25,13 @@ const LotsEdit: FC<any> = ({ lot, setEditMode }) => {
     }
 
     return (
-        <Fragment>
-            <form onSubmit={onSubmit}>
-                <input value={name} onChange={(e) => setName(e.target.value)} type='text' placeholder={lot.name} required />
-                <button type='submit'>{t('basic.save')}</button>
-                <button type='button' onClick={() => setEditMode(false)}>{t('basic.dismiss')}</button>
-            </form>
-        </Fragment>
+      <Fragment>
+        <form onSubmit={onSubmit}>
+          <input value={name} onChange={(e) => setName(e.target.value)} type='text' placeholder={lot.name} required />
+          <button type='submit'>{t('basic.save')}</button>
+          <button type='button' onClick={() => setEditMode(false)}>{t('basic.dismiss')}</button>
+        </form>
+      </Fragment>
     )
 }
 

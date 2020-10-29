@@ -8,19 +8,19 @@ import { LotsProvider } from 'src/context/LotsContext'
 import 'src/App.css'
 
 const App = () => (
-    <Suspense fallback='...'>
-      <I18nextProvider i18n={i18n}>
-        <LotsProvider>
-          <LanguageSwitcher />
-          <Router>
-            <Switch>
-              <Route exact path='/' component={Home} />
-              <Route exact path='/lots' component={Lots} />
-            </Switch>
-          </Router>
-        </LotsProvider>
-      </I18nextProvider>
-    </Suspense>
+  <Suspense fallback='...'>
+    <I18nextProvider i18n={i18n}>
+      <LotsProvider>
+        <LanguageSwitcher />
+        <Router>
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route exact path='/lots' component={Lots} />
+          </Switch>
+        </Router>
+      </LotsProvider>
+    </I18nextProvider>
+  </Suspense>
   )
 
 export default App

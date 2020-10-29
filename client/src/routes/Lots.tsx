@@ -8,12 +8,12 @@ const Lots = () => {
     const { t } = useTranslation()
 
     return (
-        <Fragment>
-            <Link to='/'>Home</Link>
-            <h1>{t('basic.lots')}</h1>
-            <LotsInput />
-            <LotsList />
-        </Fragment>
+      <Fragment>
+        <Link to='/'>Home</Link>
+        <h1>{t('basic.lots')}</h1>
+        <LotsInput />
+        <LotsList />
+      </Fragment>
     )
 }
 

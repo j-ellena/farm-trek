@@ -21,9 +21,9 @@ const LotsList = () => {
     }, [])
 
     return (
-        <Fragment>
-            {lots.map((lot: Lot) => <LotsItem key={lot.id} lot={lot} />)}
-        </Fragment>
+      <Fragment>
+        {lots.map((lot: Lot) => <LotsItem key={lot.id} lot={lot} />)}
+      </Fragment>
     )
 }
 

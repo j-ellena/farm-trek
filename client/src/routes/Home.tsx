@@ -8,11 +8,11 @@ const Home = () => {
     const { t } = useTranslation()
 
     return (
-        <div className='home'>
-            <Link to='/lots'>{t('basic.lots')}</Link>
-            <code>{t('app.name')}</code>
-            <img src={logo} className='logo' alt='logo' />
-        </div>
+      <div className='home'>
+        <Link to='/lots'>{t('basic.lots')}</Link>
+        <code>{t('app.name')}</code>
+        <img src={logo} className='logo' alt='logo' />
+      </div>
     )
 }
 
