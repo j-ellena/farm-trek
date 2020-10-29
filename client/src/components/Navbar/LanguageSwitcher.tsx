@@ -9,7 +9,8 @@ const LanguageSwitcher = () => {
   return (
     <div>
       {supportedLngs
-        && <select
+        &&
+        <select
           value={i18n.language}
           onChange={(e) => {
             i18n.changeLanguage(e.target.value)
@@ -20,7 +21,7 @@ const LanguageSwitcher = () => {
             .filter((lng: string) => lng !== 'cimode')
             .map((lng: string) => <option key={lng} value={lng}>{lng.toUpperCase()}</option>)}
         </select>
-          }
+      }
     </div>
   )
 }
