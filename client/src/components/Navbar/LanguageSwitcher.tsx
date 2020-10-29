@@ -8,7 +8,8 @@ const LanguageSwitcher = () => {
 
   return (
     <div>
-      {supportedLngs
+      {
+        supportedLngs
         &&
         <select
           value={i18n.language}
