@@ -30,7 +30,7 @@ const Item: FC<ILot> = ({ lot }) => {
           ? <LotsEdit lot={lot} setEditMode={setEditMode} />
           :
           <div>
-            <span onClick={() => setEditMode(true)}>
+            <span onClick={() => setEditMode(true)} onKeyDown={() => setEditMode(true)}>
               {lot.name}
               <button type='button'>{t('basic.edit')}</button>
             </span>
