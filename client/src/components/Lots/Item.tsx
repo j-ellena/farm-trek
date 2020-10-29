@@ -1,5 +1,5 @@
 import React, {
-  FC, Fragment, useContext, useState,
+  FC, useContext, useState,
 } from 'react'
 import { useTranslation } from 'react-i18next'
 
@@ -24,7 +24,7 @@ const Item: FC<ILot> = ({ lot }) => {
   }
 
   return (
-    <Fragment>
+    <>
       {editMode
         ? <LotsEdit lot={lot} setEditMode={setEditMode} />
         :
@@ -36,7 +36,7 @@ const Item: FC<ILot> = ({ lot }) => {
           <button type='button' onClick={() => handleDelete(lot.id)}>{t('basic.delete')}</button>
         </div>
       }
-    </Fragment >
+    </>
   )
 }
 
