@@ -11,7 +11,10 @@ const LanguageSwitcher = () => {
       {supportedLngs
         && <select
           value={i18n.language}
-          onChange={(e) => i18n.changeLanguage(e.target.value)}
+          onChange={(e) => {
+            i18n.changeLanguage(e.target.value)
+            document.documentElement.lang = e.target.value
+          }}
         >
           {supportedLngs
             .filter((lng: string) => lng !== 'cimode')
