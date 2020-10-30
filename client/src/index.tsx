@@ -1,14 +1,11 @@
-import React, { StrictMode } from 'react'
+import React from 'react'
 import { render } from 'react-dom'
 import App from 'src/App'
 import * as serviceWorker from 'src/serviceWorker'
 
-render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-  document.getElementById('root'),
-)
+const rootElement = document.getElementById('root')
+
+render(<App />, rootElement)
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
