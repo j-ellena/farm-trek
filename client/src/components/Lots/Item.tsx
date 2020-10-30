@@ -28,14 +28,15 @@ const Item: FC<ILot> = ({ lot }) => {
       {
         editMode
           ? <LotsEdit lot={lot} setEditMode={setEditMode} />
-          :
-          <div>
-            <span role='button' tabIndex={0} onClick={() => setEditMode(true)} onKeyDown={() => setEditMode(true)}>
-              {lot.name}
-              <button type='button'>{t('basic.edit')}</button>
-            </span>
-            <button type='button' onClick={() => handleDelete(lot.id)}>{t('basic.delete')}</button>
-          </div>
+          : (
+            <div>
+              <span role='button' tabIndex={0} onClick={() => setEditMode(true)} onKeyDown={() => setEditMode(true)}>
+                {lot.name}
+                <button type='button'>{t('basic.edit')}</button>
+              </span>
+              <button type='button' onClick={() => handleDelete(lot.id)}>{t('basic.delete')}</button>
+            </div>
+          )
       }
     </>
   )
