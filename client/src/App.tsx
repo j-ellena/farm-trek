@@ -8,6 +8,7 @@ import { LanguageSwitcher } from 'src/components/Navbar'
 import { LotsProvider } from 'src/context/LotsContext'
 import theme from 'src/theme'
 import 'src/App.css'
+import 'fontsource-roboto'
 
 const App = () => (
   <StrictMode>
