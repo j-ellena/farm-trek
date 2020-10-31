@@ -12,6 +12,7 @@ import Accordion from '@material-ui/core/Accordion'
 import AccordionActions from '@material-ui/core/AccordionActions'
 import AccordionSummary from '@material-ui/core/AccordionSummary'
 import Button from '@material-ui/core/Button'
+import Typography from '@material-ui/core/Typography'
 import DeleteIcon from '@material-ui/icons/Delete'
 import EditIcon from '@material-ui/icons/Edit'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
@@ -39,7 +40,7 @@ const Item: FC<ILot> = ({ lot }) => {
           : (
             <Accordion>
               <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                {lot.name}
+                <Typography>{lot.name}</Typography>
               </AccordionSummary>
               <AccordionActions>
                 <Button
