@@ -12,6 +12,8 @@ import Accordion from '@material-ui/core/Accordion'
 import AccordionActions from '@material-ui/core/AccordionActions'
 import AccordionSummary from '@material-ui/core/AccordionSummary'
 import Button from '@material-ui/core/Button'
+import DeleteIcon from '@material-ui/icons/Delete'
+import EditIcon from '@material-ui/icons/Edit'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
 const Item: FC<ILot> = ({ lot }) => {
@@ -44,6 +46,7 @@ const Item: FC<ILot> = ({ lot }) => {
                   type='button'
                   onClick={() => handleDelete(lot.id)}
                   size='small'
+                  startIcon={<DeleteIcon />}
                 >
                   {t('basic.delete')}
                 </Button>
@@ -52,6 +55,7 @@ const Item: FC<ILot> = ({ lot }) => {
                   onClick={() => setEditMode(true)}
                   size='small'
                   color='primary'
+                  startIcon={<EditIcon />}
                 >
                   {t('basic.edit')}
                 </Button>
