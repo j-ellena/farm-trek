@@ -2,6 +2,11 @@
   "app": {
     "name": "Farm Trek HR"
   },
+  "aria": {
+    "expand": "Proširi",
+    "panelContent": "ploča-{{accordion}}-sadržaj",
+    "panelHeader": "ploča-{{accordion}}-zaglavlje"
+  },
   "basic": {
     "add": "Dodaj",
     "delete": "Izbriši",

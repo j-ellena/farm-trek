@@ -56,9 +56,9 @@ const Item: FC<ILot> = ({ lot }) => {
               <Accordion>
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
-                  aria-label='Expand'
-                  aria-controls={`panel-${lot.name}-content`}
-                  id={`panel-${lot.name}-header`}
+                  aria-label={t('aria.expand')}
+                  aria-controls={t('aria.panelContent', { accordion: lot.name })}
+                  id={t('aria.panelHeader', { accordion: lot.name })}
                 >
                   <Typography>{lot.name}</Typography>
                 </AccordionSummary>
