@@ -23,6 +23,9 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       maxWidth: '100%',
       padding: theme.spacing(0.25, 2),
+    },
+    button: {
+      color: theme.palette.primary.light
     }
   })
 )
@@ -64,6 +67,7 @@ const Item: FC<ILot> = ({ lot }) => {
                     {t('basic.delete')}
                   </Button>
                   <Button
+                    className={classes.button}
                     type='button'
                     onClick={() => setEditMode(true)}
                     size='small'
