@@ -8,6 +8,12 @@ import HTTPclient from 'src/apis/FarmTrekApi'
 import { LotsContext } from 'src/context/LotsContext'
 import { LotsEdit } from 'src/components/Lots'
 
+import Accordion from '@material-ui/core/Accordion'
+import AccordionActions from '@material-ui/core/AccordionActions'
+import AccordionSummary from '@material-ui/core/AccordionSummary'
+import Button from '@material-ui/core/Button'
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+
 const Item: FC<ILot> = ({ lot }) => {
 
   const { t } = useTranslation()
@@ -29,13 +35,28 @@ const Item: FC<ILot> = ({ lot }) => {
         editMode
           ? <LotsEdit lot={lot} setEditMode={setEditMode} />
           : (
-            <div>
-              <span role='button' tabIndex={0} onClick={() => setEditMode(true)} onKeyDown={() => setEditMode(true)}>
+            <Accordion>
+              <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                 {lot.name}
-                <button type='button'>{t('basic.edit')}</button>
-              </span>
-              <button type='button' onClick={() => handleDelete(lot.id)}>{t('basic.delete')}</button>
-            </div>
+              </AccordionSummary>
+              <AccordionActions>
+                <Button
+                  type='button'
+                  onClick={() => handleDelete(lot.id)}
+                  size='small'
+                >
+                  {t('basic.delete')}
+                </Button>
+                <Button
+                  type='button'
+                  onClick={() => setEditMode(true)}
+                  size='small'
+                  color='primary'
+                >
+                  {t('basic.edit')}
+                </Button>
+              </AccordionActions>
+            </Accordion>
           )
       }
     </>
