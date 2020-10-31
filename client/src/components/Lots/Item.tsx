@@ -8,6 +8,7 @@ import HTTPclient from 'src/apis/FarmTrekApi'
 import { LotsContext } from 'src/context/LotsContext'
 import { LotsEdit } from 'src/components/Lots'
 
+import { Theme, createStyles, makeStyles } from '@material-ui/core/styles'
 import Accordion from '@material-ui/core/Accordion'
 import AccordionActions from '@material-ui/core/AccordionActions'
 import AccordionSummary from '@material-ui/core/AccordionSummary'
@@ -17,8 +18,18 @@ import DeleteIcon from '@material-ui/icons/Delete'
 import EditIcon from '@material-ui/icons/Edit'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      maxWidth: '100%',
+      padding: theme.spacing(0.25, 2),
+    }
+  })
+)
+
 const Item: FC<ILot> = ({ lot }) => {
 
+  const classes = useStyles()
   const { t } = useTranslation()
   const { deleteLot } = useContext(LotsContext)
   const [editMode, setEditMode] = useState<boolean>(false)
@@ -38,30 +49,32 @@ const Item: FC<ILot> = ({ lot }) => {
         editMode
           ? <LotsEdit lot={lot} setEditMode={setEditMode} />
           : (
-            <Accordion>
-              <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography>{lot.name}</Typography>
-              </AccordionSummary>
-              <AccordionActions>
-                <Button
-                  type='button'
-                  onClick={() => handleDelete(lot.id)}
-                  size='small'
-                  startIcon={<DeleteIcon />}
-                >
-                  {t('basic.delete')}
-                </Button>
-                <Button
-                  type='button'
-                  onClick={() => setEditMode(true)}
-                  size='small'
-                  color='primary'
-                  startIcon={<EditIcon />}
-                >
-                  {t('basic.edit')}
-                </Button>
-              </AccordionActions>
-            </Accordion>
+            <div className={classes.root}>
+              <Accordion>
+                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                  <Typography>{lot.name}</Typography>
+                </AccordionSummary>
+                <AccordionActions>
+                  <Button
+                    type='button'
+                    onClick={() => handleDelete(lot.id)}
+                    size='small'
+                    startIcon={<DeleteIcon />}
+                  >
+                    {t('basic.delete')}
+                  </Button>
+                  <Button
+                    type='button'
+                    onClick={() => setEditMode(true)}
+                    size='small'
+                    color='primary'
+                    startIcon={<EditIcon />}
+                  >
+                    {t('basic.edit')}
+                  </Button>
+                </AccordionActions>
+              </Accordion>
+            </div>
           )
       }
     </>
