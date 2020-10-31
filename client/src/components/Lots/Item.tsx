@@ -54,7 +54,12 @@ const Item: FC<ILot> = ({ lot }) => {
           : (
             <div className={classes.root}>
               <Accordion>
-                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-label='Expand'
+                  aria-controls={`panel-${lot.name}-content`}
+                  id={`panel-${lot.name}-header`}
+                >
                   <Typography>{lot.name}</Typography>
                 </AccordionSummary>
                 <AccordionActions>
