@@ -35,9 +35,6 @@
     "lint-fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "parse-translation": "i18next --config i18next-parser.json"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
   "browserslist": {
     "production": [
       ">0.2%",
