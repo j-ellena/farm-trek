@@ -31,8 +31,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "lint-fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "lint": "eslint .",
+    "lint-fix": "eslint . --fix",
     "parse-translation": "i18next --config i18next-parser.json"
   },
   "browserslist": {
