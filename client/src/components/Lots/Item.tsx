@@ -36,6 +36,7 @@ const Item: FC<ILot> = ({ lot }) => {
   const { t } = useTranslation()
   const { deleteLot } = useContext(LotsContext)
   const [editMode, setEditMode] = useState<boolean>(false)
+  const [expanded, setExpanded] = useState<boolean>(false)
 
   const handleDelete = async (id: number) => {
     try {
@@ -50,17 +51,26 @@ const Item: FC<ILot> = ({ lot }) => {
     <>
       {
         editMode
-          ? <LotsEdit lot={lot} setEditMode={setEditMode} />
+          ? <LotsEdit lot={lot} setEditMode={setEditMode} setExpanded={setExpanded} />
           : (
             <div className={classes.root}>
-              <Accordion>
+              <Accordion expanded={expanded} TransitionProps={{ unmountOnExit: true }}>
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
                   aria-label={t('aria.expand')}
                   aria-controls={t('aria.panelContent', { accordion: lot.name })}
                   id={t('aria.panelHeader', { accordion: lot.name })}
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    setExpanded(!expanded)
+                  }}
                 >
-                  <Typography>{lot.name}</Typography>
+                  <Typography onClick={() => {
+                    if (expanded) setEditMode(true)
+                  }}
+                  >
+                    {lot.name}
+                  </Typography>
                 </AccordionSummary>
                 <AccordionActions>
                   <Button

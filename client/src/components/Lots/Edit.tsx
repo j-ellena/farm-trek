@@ -5,8 +5,31 @@ import { useTranslation } from 'react-i18next'
 import HTTPclient from 'src/apis/FarmTrekApi'
 import { LotsContext } from 'src/context/LotsContext'
 
-const LotsEdit: FC<any> = ({ lot, setEditMode }) => {
+import { Theme, createStyles, makeStyles } from '@material-ui/core/styles'
+import Accordion from '@material-ui/core/Accordion'
+import AccordionActions from '@material-ui/core/AccordionActions'
+import AccordionSummary from '@material-ui/core/AccordionSummary'
+import Button from '@material-ui/core/Button'
+import CancelIcon from '@material-ui/icons/Cancel'
+import FormControl from '@material-ui/core/FormControl'
+import SaveIcon from '@material-ui/icons/Save'
+import TextField from '@material-ui/core/TextField'
 
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      maxWidth: '100%',
+      padding: theme.spacing(0.25, 2),
+    },
+    button: {
+      color: theme.palette.primary.light
+    }
+  })
+)
+
+const LotsEdit: FC<any> = ({ lot, setEditMode, setExpanded }) => {
+
+  const classes = useStyles()
   const { t } = useTranslation()
   const [name, setName] = useState<string>(lot.name)
   const { updateLot } = useContext(LotsContext)
@@ -19,19 +42,62 @@ const LotsEdit: FC<any> = ({ lot, setEditMode }) => {
       })
       updateLot(response.data)
       setEditMode(false)
+      setExpanded(true)
     } catch (err) {
       console.error(err.message)
     }
   }
 
   return (
-    <>
+    <div className={classes.root}>
       <form onSubmit={onSubmit}>
-        <input value={name} onChange={(e) => setName(e.target.value)} type='text' placeholder={lot.name} required />
-        <button type='submit'>{t('basic.save')}</button>
-        <button type='button' onClick={() => setEditMode(false)}>{t('basic.dismiss')}</button>
+        <Accordion expanded TransitionProps={{ unmountOnExit: true }}>
+          <AccordionSummary
+            aria-label={t('aria.expand')}
+            aria-controls={t('aria.panelContent', { accordion: lot.name })}
+            id={t('aria.panelHeader', { accordion: lot.name })}
+            onClick={(e) => {
+              setExpanded(true)
+              e.stopPropagation()
+            }}
+            onFocus={(e) => e.stopPropagation()}
+          >
+            <FormControl>
+              <TextField
+                variant='filled'
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                type='text'
+                placeholder={lot.name}
+                required
+              />
+            </FormControl>
+          </AccordionSummary>
+          <AccordionActions>
+            <Button
+              type='button'
+              onClick={() => {
+                setEditMode(false)
+                setExpanded(true)
+              }}
+              size='small'
+              startIcon={<CancelIcon />}
+            >
+              {t('basic.dismiss')}
+            </Button>
+            <Button
+              className={classes.button}
+              type='submit'
+              size='small'
+              color='primary'
+              startIcon={<SaveIcon />}
+            >
+              {t('basic.save')}
+            </Button>
+          </AccordionActions>
+        </Accordion>
       </form>
-    </>
+    </div>
   )
 }
 
