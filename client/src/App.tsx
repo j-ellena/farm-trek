@@ -4,11 +4,13 @@ import { I18nextProvider } from 'react-i18next'
 import { MuiThemeProvider } from '@material-ui/core/styles'
 import i18n from 'src/i18n'
 import { Home, Lots } from 'src/routes'
-import { LanguageSwitcher } from 'src/components/Navbar'
+import { Header } from 'src/components/AppBar'
 import { LotsProvider } from 'src/context/LotsContext'
 import theme from 'src/theme'
 import 'src/App.css'
 import 'fontsource-roboto'
+
+import CssBaseline from '@material-ui/core/CssBaseline'
 
 const App = () => (
   <StrictMode>
@@ -16,12 +18,14 @@ const App = () => (
       <I18nextProvider i18n={i18n}>
         <MuiThemeProvider theme={theme}>
           <LotsProvider>
-            <LanguageSwitcher />
             <Router>
-              <Switch>
-                <Route exact path='/' component={Home} />
-                <Route exact path='/lots' component={Lots} />
-              </Switch>
+              <CssBaseline>
+                <Header />
+                <Switch>
+                  <Route exact path='/' component={Home} />
+                  <Route exact path='/lots' component={Lots} />
+                </Switch>
+              </CssBaseline>
             </Router>
           </LotsProvider>
         </MuiThemeProvider>

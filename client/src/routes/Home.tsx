@@ -1,19 +1,19 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import logo from 'src/logo.png'
 
+import Typography from '@material-ui/core/Typography'
+
 const Home = () => {
 
-    const { t } = useTranslation()
+  const { t } = useTranslation()
 
-    return (
-      <div className='home'>
-        <Link to='/lots'>{t('basic.lots')}</Link>
-        <code>{t('app.name')}</code>
-        <img src={logo} className='logo' alt='logo' />
-      </div>
-    )
+  return (
+    <div className='home'>
+      <Typography>{t('app.name')}</Typography>
+      <img src={logo} className='logo' alt='logo' />
+    </div>
+  )
 }
 
 export default Home
