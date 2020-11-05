@@ -11,6 +11,7 @@ import 'src/App.css'
 import 'fontsource-roboto'
 
 import CssBaseline from '@material-ui/core/CssBaseline'
+import Grid from '@material-ui/core/Grid'
 
 const App = () => (
   <StrictMode>
@@ -20,11 +21,20 @@ const App = () => (
           <LotsProvider>
             <Router>
               <CssBaseline>
-                <Header />
-                <Switch>
-                  <Route exact path='/' component={Home} />
-                  <Route exact path='/lots' component={Lots} />
-                </Switch>
+                <Grid container direction='column'>
+                  <Grid item>
+                    <Header />
+                  </Grid>
+                  <Grid item container>
+                    <Grid item xs={false} sm={1} md={2} />
+                    <Grid item xs={12} sm={10} md={8}>
+                      <Switch>
+                        <Route exact path='/' component={Home} />
+                        <Route exact path='/lots' component={Lots} />
+                      </Switch>
+                    </Grid>
+                  </Grid>
+                </Grid>
               </CssBaseline>
             </Router>
           </LotsProvider>
