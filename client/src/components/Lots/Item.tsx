@@ -9,21 +9,16 @@ import { LotsContext } from 'src/context/LotsContext'
 import { LotsEdit } from 'src/components/Lots'
 
 import { Theme, createStyles, makeStyles } from '@material-ui/core/styles'
-import Accordion from '@material-ui/core/Accordion'
-import AccordionActions from '@material-ui/core/AccordionActions'
-import AccordionSummary from '@material-ui/core/AccordionSummary'
+import Card from '@material-ui/core/Card'
+import CardActions from '@material-ui/core/CardActions'
+import CardContent from '@material-ui/core/CardContent'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import DeleteIcon from '@material-ui/icons/Delete'
 import EditIcon from '@material-ui/icons/Edit'
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {
-      maxWidth: '100%',
-      padding: theme.spacing(0.25, 2),
-    },
     button: {
       color: theme.palette.primary.light
     }
@@ -36,7 +31,6 @@ const Item: FC<ILot> = ({ lot }) => {
   const { t } = useTranslation()
   const { deleteLot } = useContext(LotsContext)
   const [editMode, setEditMode] = useState<boolean>(false)
-  const [expanded, setExpanded] = useState<boolean>(false)
 
   const handleDelete = async (id: number) => {
     try {
@@ -51,49 +45,35 @@ const Item: FC<ILot> = ({ lot }) => {
     <>
       {
         editMode
-          ? <LotsEdit lot={lot} setEditMode={setEditMode} setExpanded={setExpanded} />
+          ? <LotsEdit lot={lot} setEditMode={setEditMode} />
           : (
-            <div className={classes.root}>
-              <Accordion expanded={expanded} TransitionProps={{ unmountOnExit: true }}>
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-label={t('aria.expand')}
-                  aria-controls={t('aria.panelContent', { accordion: lot.name })}
-                  id={t('aria.panelHeader', { accordion: lot.name })}
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    setExpanded(!expanded)
-                  }}
+            <Card variant='outlined'>
+              <CardContent>
+                <Typography color='textSecondary' gutterBottom>
+                  {lot.name}
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button
+                  type='button'
+                  onClick={() => handleDelete(lot.id)}
+                  size='small'
+                  startIcon={<DeleteIcon />}
                 >
-                  <Typography onClick={() => {
-                    if (expanded) setEditMode(true)
-                  }}
-                  >
-                    {lot.name}
-                  </Typography>
-                </AccordionSummary>
-                <AccordionActions>
-                  <Button
-                    type='button'
-                    onClick={() => handleDelete(lot.id)}
-                    size='small'
-                    startIcon={<DeleteIcon />}
-                  >
-                    {t('basic.delete')}
-                  </Button>
-                  <Button
-                    className={classes.button}
-                    type='button'
-                    onClick={() => setEditMode(true)}
-                    size='small'
-                    color='primary'
-                    startIcon={<EditIcon />}
-                  >
-                    {t('basic.edit')}
-                  </Button>
-                </AccordionActions>
-              </Accordion>
-            </div>
+                  {t('basic.delete')}
+                </Button>
+                <Button
+                  className={classes.button}
+                  type='button'
+                  onClick={() => setEditMode(true)}
+                  size='small'
+                  color='primary'
+                  startIcon={<EditIcon />}
+                >
+                  {t('basic.edit')}
+                </Button>
+              </CardActions>
+            </Card>
           )
       }
     </>

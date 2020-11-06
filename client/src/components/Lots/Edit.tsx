@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 )
 
-const LotsEdit: FC<any> = ({ lot, setEditMode, setExpanded }) => {
+const LotsEdit: FC<any> = ({ lot, setEditMode }) => {
 
   const classes = useStyles()
   const { t } = useTranslation()
@@ -42,7 +42,6 @@ const LotsEdit: FC<any> = ({ lot, setEditMode, setExpanded }) => {
       })
       updateLot(response.data)
       setEditMode(false)
-      setExpanded(true)
     } catch (err) {
       console.error(err.message)
     }
@@ -57,7 +56,6 @@ const LotsEdit: FC<any> = ({ lot, setEditMode, setExpanded }) => {
             aria-controls={t('aria.panelContent', { accordion: lot.name })}
             id={t('aria.panelHeader', { accordion: lot.name })}
             onClick={(e) => {
-              setExpanded(true)
               e.stopPropagation()
             }}
             onFocus={(e) => e.stopPropagation()}
@@ -78,7 +76,6 @@ const LotsEdit: FC<any> = ({ lot, setEditMode, setExpanded }) => {
               type='button'
               onClick={() => {
                 setEditMode(false)
-                setExpanded(true)
               }}
               size='small'
               startIcon={<CancelIcon />}
