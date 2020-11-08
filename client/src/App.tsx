@@ -26,8 +26,8 @@ const App = () => (
                     <Header />
                   </Grid>
                   <Grid item container>
-                    <Grid item xs={false} sm={1} md={2} />
-                    <Grid item xs={12} sm={10} md={8}>
+                    <Grid item xs={1} md={2} />
+                    <Grid item xs={10} md={8} container direction='column' alignContent='center' alignItems='center' spacing={2}>
                       <Switch>
                         <Route exact path='/' component={Home} />
                         <Route exact path='/lots' component={Lots} />
