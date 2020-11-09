@@ -20,9 +20,6 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       maxWidth: '100%',
       padding: theme.spacing(0.25, 2),
-    },
-    button: {
-      color: theme.palette.primary.light
     }
   })
 )
@@ -74,16 +71,13 @@ const LotsEdit: FC<any> = ({ lot, setEditMode }) => {
           <AccordionActions>
             <Button
               type='button'
-              onClick={() => {
-                setEditMode(false)
-              }}
               size='small'
               startIcon={<CancelIcon />}
+              onClick={() => setEditMode(false)}
             >
               {t('basic.dismiss')}
             </Button>
             <Button
-              className={classes.button}
               type='submit'
               size='small'
               color='primary'

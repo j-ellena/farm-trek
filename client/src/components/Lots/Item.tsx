@@ -8,7 +8,6 @@ import HTTPclient from 'src/apis/FarmTrekApi'
 import { LotsContext } from 'src/context/LotsContext'
 import { LotsEdit } from 'src/components/Lots'
 
-import { Theme, createStyles, makeStyles } from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
 import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
@@ -17,17 +16,8 @@ import Typography from '@material-ui/core/Typography'
 import DeleteIcon from '@material-ui/icons/Delete'
 import EditIcon from '@material-ui/icons/Edit'
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    button: {
-      color: theme.palette.primary.light
-    }
-  })
-)
-
 const Item: FC<ILot> = ({ lot }) => {
 
-  const classes = useStyles()
   const { t } = useTranslation()
   const { deleteLot } = useContext(LotsContext)
   const [editMode, setEditMode] = useState<boolean>(false)
@@ -56,19 +46,18 @@ const Item: FC<ILot> = ({ lot }) => {
               <CardActions>
                 <Button
                   type='button'
-                  onClick={() => handleDelete(lot.id)}
                   size='small'
                   startIcon={<DeleteIcon />}
+                  onClick={() => handleDelete(lot.id)}
                 >
                   {t('basic.delete')}
                 </Button>
                 <Button
-                  className={classes.button}
                   type='button'
-                  onClick={() => setEditMode(true)}
                   size='small'
                   color='primary'
                   startIcon={<EditIcon />}
+                  onClick={() => setEditMode(true)}
                 >
                   {t('basic.edit')}
                 </Button>
