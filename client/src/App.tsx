@@ -1,13 +1,12 @@
-import React, { StrictMode, Suspense, useMemo } from 'react'
+import React, { StrictMode, Suspense } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { I18nextProvider } from 'react-i18next'
-import useMediaQuery from '@material-ui/core/useMediaQuery'
 import { MuiThemeProvider } from '@material-ui/core/styles'
 import i18n from 'src/i18n'
 import { Home, Lots } from 'src/routes'
 import { Header } from 'src/components/AppBar'
 import { LotsProvider } from 'src/context/LotsContext'
-import getTheme from 'src/theme'
+import { useThemeMode } from 'src/theme'
 import 'src/App.css'
 import 'fontsource-roboto'
 
@@ -16,12 +15,7 @@ import Grid from '@material-ui/core/Grid'
 
 const App = () => {
 
-  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)')
-
-  const theme = useMemo(
-    () => getTheme(prefersDarkMode),
-    [prefersDarkMode],
-  )
+  const [theme] = useThemeMode()
 
   return (
     <StrictMode>
