@@ -1,15 +1,20 @@
-import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles/'
+import { Theme, ThemeOptions, createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles/'
 import { lime } from '@material-ui/core/colors'
 
-const unresponsiveFontsTheme = createMuiTheme({
-    palette: {
-        type: 'dark',
-        primary: {
-            main: lime[600]
-        }
-    }
-})
+const getTheme = (prefersDarkMode: boolean = true): Theme => {
 
-const theme = responsiveFontSizes(unresponsiveFontsTheme)
+    const buildOptions = (): ThemeOptions => ({
+        palette: {
+            type: prefersDarkMode ? 'dark' : 'light',
+            primary: {
+                main: lime[600]
+            }
+        },
+    })
 
-export default theme
+    const unresponsiveTheme = createMuiTheme(buildOptions())
+    const theme = responsiveFontSizes(unresponsiveTheme)
+    return theme
+}
+
+export default getTheme
