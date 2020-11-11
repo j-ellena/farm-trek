@@ -1,11 +1,14 @@
 import { Theme, ThemeOptions, createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles/'
 import { lime } from '@material-ui/core/colors'
+import { useThemeMode } from 'src/theme'
 
-const getTheme = (prefersDarkMode: boolean = true): Theme => {
+const getTheme = (): Theme => {
+    
+    const [isDark] = useThemeMode()
 
     const buildOptions = (): ThemeOptions => ({
         palette: {
-            type: prefersDarkMode ? 'dark' : 'light',
+            type: isDark ? 'dark' : 'light',
             primary: {
                 main: lime[600]
             }
