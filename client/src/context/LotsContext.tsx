@@ -4,6 +4,8 @@ export const LotsContext = createContext<any>([])
 
 export const LotsProvider = (props: any) => {
 
+  const { children } = props
+
   const [lots, setLots] = useState<Lot[]>([])
 
   const addLot = (lot: Lot): void => {
@@ -21,13 +23,12 @@ export const LotsProvider = (props: any) => {
     setLots(updatedLots)
   }
 
-  const { children } = props
+  const contextValue = {
+    lots, setLots, addLot, deleteLot, updateLot,
+  }
 
   return (
-    <LotsContext.Provider value={{
-      lots, setLots, addLot, deleteLot, updateLot,
-    }}
-    >
+    <LotsContext.Provider value={contextValue}>
       {children}
     </LotsContext.Provider>
   )
