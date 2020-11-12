@@ -1,6 +1,6 @@
 import React, { useState, createContext } from 'react'
 
-export const LotsContext = createContext<any>([])
+export const LotsContext = createContext<any>({})
 
 export const LotsProvider = (props: any) => {
 

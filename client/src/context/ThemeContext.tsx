@@ -1,44 +1,22 @@
-import React, {
-  // useState,
-  createContext
-} from 'react'
+import React, { createContext } from 'react'
 import { MuiThemeProvider } from '@material-ui/core/styles'
-// import { getTheme, useThemeMode } from 'src/theme'
-import { getTheme } from 'src/theme'
+import { useThemeMode, getTheme } from 'src/theme'
 
-// const [isDark] = useThemeMode()
-
-export const ThemeContext = createContext({
-  // {
-  //     currentTheme: 'normal',
-  //     setTheme: null,
-  // },
-}
-)
+export const ThemeContext = createContext<any>({})
 
 export const ThemeProvider = (props: any) => {
 
   const { children } = props
 
-  // const currentTheme = localStorage.getItem('appTheme') || 'normal'
+  const [isDark, toggleTheme] = useThemeMode()
 
-  // const [themeName, setThemeName] = useState(currentTheme)
-
-  // const theme = getTheme()
-
-  // const setTheme = (name: any) => {
-  //     localStorage.setItem('appTheme', name)
-  //     setThemeName(name)
-  // }
-
-  // const contextValue = {
-  //     currentTheme: themeName,
-  //     setTheme,
-  // }
+  const contextValue = {
+    isDark, toggleTheme
+  }
 
   return (
-    <ThemeContext.Provider value={{ isDark: true }}>
-      <MuiThemeProvider theme={getTheme()}>
+    <ThemeContext.Provider value={contextValue}>
+      <MuiThemeProvider theme={getTheme(isDark)}>
         {children}
       </MuiThemeProvider>
     </ThemeContext.Provider>
