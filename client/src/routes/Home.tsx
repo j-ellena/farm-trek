@@ -2,6 +2,7 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import logoDark from 'src/logoDark.png'
 import logoLight from 'src/logoLight.png'
+import { dark } from 'src/theme'
 
 import { Theme, createStyles, makeStyles, useTheme } from '@material-ui/core/styles'
 import Avatar from '@material-ui/core/Avatar'
@@ -13,11 +14,11 @@ const useStyles = makeStyles((theme: Theme) =>
     logo: {
       width: theme.spacing(24),
       height: theme.spacing(24),
-      [theme.breakpoints.down('sm')] : {
+      [theme.breakpoints.down('sm')]: {
         width: theme.spacing(12),
         height: theme.spacing(12),
       },
-      [theme.breakpoints.up('lg')] : {
+      [theme.breakpoints.up('lg')]: {
         width: theme.spacing(42),
         height: theme.spacing(42),
       },
@@ -40,7 +41,7 @@ const Home = () => {
       <Grid item>
         <Avatar
           alt='logo'
-          src={theme.palette.type === 'dark' ? logoDark : logoLight}
+          src={theme.palette.type === dark ? logoDark : logoLight}
           className={classes.logo}
         />
       </Grid>
