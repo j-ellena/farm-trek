@@ -1,32 +1,28 @@
 import { useEffect, useState } from 'react'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
+import { themeKey, PaletteType, dark, light } from 'src/theme'
+import { useLocalStorage } from 'src/utils'
 
-const useThemeMode = () : [boolean, () => void] => {
-
-    const localStorageKey = 'theme'
-    const localStorageValues = {
-        dark: 'dark',
-        light: 'light'
-    }
-    const { dark, light } = localStorageValues
-
-    const useLocalStorage = (initialValue: any) => {
-        const getInitial = () => {
-            const previouslyStored = window.localStorage.getItem(localStorageKey)
-            return previouslyStored || initialValue
-        }
-        const [storedValue, setStoredValue] = useState(getInitial)
-        const setValue = (value: string) => {
-            window.localStorage.setItem(localStorageKey, value)
-            setStoredValue(value)
-        }
-        return [storedValue, setValue]
-    }
+const useThemeMode = (): [boolean, () => void] => {
 
     const [isDark, setIsDark] = useState<boolean>(false)
-    const [localTheme, setLocalTheme] = useLocalStorage(null)
+    const [localTheme, setLocalTheme] = useLocalStorage<PaletteType | null>(themeKey, null)
+    const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)', { noSsr: true })
+    let isInitialUser = false
 
-    const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)')
+    const useBeforeFirstRender = (f: any) => {
+        const [hasRendered, setHasRendered] = useState(false)
+        useEffect(() => setHasRendered(true), [hasRendered])
+        if (!hasRendered) {
+            f()
+        }
+    }
+
+    const doBeforeFirstRender = () => {
+        isInitialUser = !!localTheme
+    }
+
+    useBeforeFirstRender(doBeforeFirstRender)
 
     const toggleTheme = () => {
         setIsDark(!isDark)
@@ -34,17 +30,15 @@ const useThemeMode = () : [boolean, () => void] => {
     }
 
     useEffect(() => {
-        window.localStorage.removeItem(localStorageKey)
-        setIsDark(prefersDarkMode)
-    }, [prefersDarkMode])
-
-    useEffect(() => {
-        setIsDark(localTheme === dark)
-    }, [localTheme])
-
-    useEffect(() => {
         setIsDark(localTheme ? localTheme === dark : prefersDarkMode)
     }, [])
+
+    useEffect(() => {
+        if (!(isInitialUser)) {
+            window.localStorage.removeItem(themeKey)
+            setIsDark(prefersDarkMode)
+        }
+    }, [prefersDarkMode])
 
     return [isDark, toggleTheme]
 }
