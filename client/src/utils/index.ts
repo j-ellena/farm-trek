@@ -1,3 +1,4 @@
+import useBeforeFirstRender from 'src/utils/useBeforeFirstRender'
 import useLocalStorage from 'src/utils/useLocalStorage'
 
-export { useLocalStorage }
+export { useBeforeFirstRender, useLocalStorage }

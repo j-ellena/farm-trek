@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import { themeKey, PaletteType, dark, light } from 'src/theme'
-import { useLocalStorage } from 'src/utils'
+import { useBeforeFirstRender, useLocalStorage } from 'src/utils'
 
 const useThemeMode = (): [boolean, () => void] => {
 
@@ -9,14 +9,6 @@ const useThemeMode = (): [boolean, () => void] => {
     const [localTheme, setLocalTheme] = useLocalStorage<PaletteType | null>(themeKey, null)
     const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)', { noSsr: true })
     let isInitialUser = false
-
-    const useBeforeFirstRender = (f: any) => {
-        const [hasRendered, setHasRendered] = useState(false)
-        useEffect(() => setHasRendered(true), [hasRendered])
-        if (!hasRendered) {
-            f()
-        }
-    }
 
     const doBeforeFirstRender = () => {
         isInitialUser = !!localTheme
