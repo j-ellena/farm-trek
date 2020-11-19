@@ -10,7 +10,7 @@ export const ThemeProvider = (props: any) => {
 
   const [isDark, toggleTheme] = useThemeMode()
 
-  const contextValue = { isDark, toggleTheme }
+  const contextValue = { toggleTheme }
 
   return (
     <ThemeContext.Provider value={contextValue}>
