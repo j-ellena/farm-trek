@@ -24,7 +24,7 @@ const Item: FC<ILot> = ({ lot }) => {
 
   const handleDelete = async (id: number) => {
     try {
-      HTTPclient.delete(`/lots/${id}`)
+      await HTTPclient.delete(`/lots/${id}`)
       deleteLot(id)
     } catch (err) {
       console.error(err)
