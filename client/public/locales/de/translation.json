@@ -19,5 +19,8 @@
   },
   "lots": {
     "placeholderNew": "Neue Parzelle eingeben..."
+  },
+  "theme": {
+    "toggleTheme": "Thema umschalten"
   }
 }

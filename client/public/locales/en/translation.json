@@ -19,5 +19,8 @@
   },
   "lots": {
     "placeholderNew": "Input new lot..."
+  },
+  "theme": {
+    "toggleTheme": "Toggle theme"
   }
 }

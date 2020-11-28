@@ -19,5 +19,8 @@
   },
   "lots": {
     "placeholderNew": "Unesite novo zemljište..."
+  },
+  "theme": {
+    "toggleTheme": "Zamijenite temu"
   }
 }
