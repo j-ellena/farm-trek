@@ -10,7 +10,7 @@ const visiblePosition = 'translate(0, 0)'
 const hiddenAbove = 'translate(25px, -100px)'
 const hiddenBelow = 'translate(-25px, 100px)'
 
-const useThemeSwitcherStyle = makeStyles((theme: Theme) => createStyles({
+const useStylesThemeSwitcher = makeStyles((theme: Theme) => createStyles({
     toggleButton: {
         background: theme.palette.type === dark ? gradientDark : gradientLight,
         borderRadius: theme.spacing(4),
@@ -29,4 +29,4 @@ const useThemeSwitcherStyle = makeStyles((theme: Theme) => createStyles({
     }
 }))
 
-export default useThemeSwitcherStyle
+export default useStylesThemeSwitcher
