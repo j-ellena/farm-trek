@@ -17,6 +17,9 @@
     "lots": "Lots",
     "save": "Save"
   },
+  "language": {
+    "switchLanguage": "Change language"
+  },
   "lots": {
     "placeholderNew": "Input new lot..."
   },

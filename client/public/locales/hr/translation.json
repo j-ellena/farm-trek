@@ -17,6 +17,9 @@
     "lots": "Zemljišta",
     "save": "Spremi"
   },
+  "language": {
+    "switchLanguage": "Promijenite jezik"
+  },
   "lots": {
     "placeholderNew": "Unesite novo zemljište..."
   },

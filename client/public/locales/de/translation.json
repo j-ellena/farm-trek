@@ -17,6 +17,9 @@
     "lots": "Parzellen",
     "save": "Speichern"
   },
+  "language": {
+    "switchLanguage": "Sprache wechseln"
+  },
   "lots": {
     "placeholderNew": "Neue Parzelle eingeben..."
   },
